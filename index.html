@@ -1,0 +1,91 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Be My Valentine
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            overflow: hidden;
+        }
+  </style>
+ </head>
+ <body class="bg-white font-serif text-black text-[17px]">
+  <!-- Hearts Background -->
+  <div class="absolute inset-0 z-[-1] opacity-70">
+   <img alt="Background with random hearts" class="w-full h-full object-cover" height="1080" src="https://storage.googleapis.com/a1aa/image/SZ0mz7S17sn3jS0p_d2rH7oxvCjP0jT93Tm-SrkXx8Y.jpg" width="1920"/>
+  </div>
+  <!-- First Page -->
+  <div class="flex flex-col items-center justify-center h-screen">
+   <div class="text-center mb-8">
+    HELLO THERE BABY
+   </div>
+   <button class="bg-pink-500 text-white py-2 px-4 rounded" onclick="showValentine()">
+    hello to you too
+   </button>
+  </div>
+  <!-- Second Page -->
+  <div class="hidden flex flex-col items-center justify-center h-screen bg-gradient-to-r from-maroon to-brown text-center text-white" id="valentine-box">
+   <p class="font-cursive mb-8">
+    I've made you wait for too long, I know...
+    <br/>
+    but my baby, would you please be my valentine?
+   </p>
+   <div class="flex gap-4">
+    <button class="bg-green-500 text-white py-2 px-4 rounded font-cursive" onclick="showFinal()">
+     Yes
+    </button>
+    <button class="bg-red-500 text-white py-2 px-4 rounded font-cursive" onclick="addYesButtons()">
+     No
+    </button>
+   </div>
+  </div>
+  <!-- Final Page -->
+  <div class="hidden flex items-center justify-center h-screen bg-lightblue p-8" id="final-message">
+   <p class="text-center font-times-brick-sans">
+    When I say I love you more, I don't just mean I love you more than you love me..
+    <br/>
+    I mean, I love you more than all the bad days ahead of us could hurt us
+    <br/>
+    I mean, I love you more than the 700 KMs between us could separate us
+    <br/>
+    I mean, I love you more than every person who tries getting between us
+    <br/>
+    I mean, I love you more than any fight that could strain us
+    <br/>
+    I mean, I love you more than any imperfection you THINK you have that could affect us
+    <br/>
+    I mean, I love you more than I love myself
+   </p>
+  </div>
+  <script>
+   // Show Valentine Page
+        function showValentine() {
+            document.querySelector(".flex").classList.add("hidden");
+            document.getElementById("valentine-box").classList.remove("hidden");
+        }
+
+        // Add "Yes" Buttons Dynamically
+        function addYesButtons() {
+            const container = document.querySelector(".flex.gap-4");
+            for (let i = 0; i < 3; i++) {
+                const yesButton = document.createElement("button");
+                yesButton.classList.add("bg-green-500", "text-white", "py-2", "px-4", "rounded", "font-cursive");
+                yesButton.textContent = "Yes";
+                yesButton.onclick = showFinal; // Clicking any "Yes" button leads to the final page
+                container.appendChild(yesButton);
+            }
+        }
+
+        // Show Final Page
+        function showFinal() {
+            document.getElementById("valentine-box").classList.add("hidden");
+            document.getElementById("final-message").classList.remove("hidden");
+        }
+  </script>
+ </body>
+</html>
